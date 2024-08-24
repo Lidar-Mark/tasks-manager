@@ -1,9 +1,10 @@
 from flask import Flask
+from src.databases.mongo import init_mongodb
 from src.endpoints.create_task import create_task_blueprint
 from src.endpoints.hello_world import hello_blueprint
 from src.endpoints.read_task import read_task_blueprint
 
-
+init_mongodb()
 app = Flask(__name__)
 app.register_blueprint(hello_blueprint)
 app.register_blueprint(create_task_blueprint)
